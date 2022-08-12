@@ -1,8 +1,8 @@
 import { Router, Request, Response, NextFunction } from 'express';
 
-import { IController } from 'types';
-import { HttpException } from 'exceptions';
-import { validationMiddleware } from 'middlewares';
+import { IController } from '../../types';
+import { HttpException } from '../../exceptions';
+import { validationMiddleware } from '../../middlewares';
 
 import { createValidation } from './post.validation';
 import { PostService } from './post.service';

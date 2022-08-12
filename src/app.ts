@@ -5,8 +5,8 @@ import cors from 'cors';
 import morgan from 'morgan';
 import helmet from 'helmet';
 
-import { IController } from 'types';
-import { errorMiddleware } from 'middlewares';
+import { IController } from './types';
+import { errorMiddleware } from './middlewares';
 
 export class App {
   public express: Application;

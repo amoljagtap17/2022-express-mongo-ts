@@ -1,10 +1,9 @@
 import 'dotenv/config';
 
-import { validateEnv } from 'utils';
-
 import { App } from './app';
 
-import { PostController } from 'resources';
+import { validateEnv } from './utils';
+import { PostController } from './resources';
 
 validateEnv();
 
