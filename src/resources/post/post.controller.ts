@@ -22,6 +22,8 @@ export class PostController implements IController {
       validationMiddleware(createValidation),
       this.create
     );
+
+    this.router.get(`${this.path}`, this.getAll);
   }
 
   private create = async (
@@ -37,6 +39,20 @@ export class PostController implements IController {
       res.status(201).json({ post });
     } catch (error) {
       next(new HttpException(400, 'Cannot create post'));
+    }
+  };
+
+  private getAll = async (
+    req: Request,
+    res: Response,
+    next: NextFunction
+  ): Promise<Response | void> => {
+    try {
+      const posts = await this.PostService.getAll();
+
+      res.status(200).json({ posts });
+    } catch (error) {
+      next(new HttpException(400, 'Cannot get posts'));
     }
   };
 }
